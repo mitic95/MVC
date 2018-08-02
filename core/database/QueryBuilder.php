@@ -22,15 +22,19 @@ class QueryBuilder
     public function insert($table, $parameters)
     {
 
-        $sql = sprintf('insert into %s (%s) values (%s)',
+        $name = implode(', ', array_keys($parameters));
 
-            $table,
+        $names = ':' . implode(', :', array_keys($parameters));
 
-            implode(', ', array_keys($parameters)),
+        $sql = "INSERT INTO {$table} ($name) VALUES ($names)";
 
-            ':' . implode(', :', array_keys($parameters))
+        //$sql = sprintf('insert into %s (%s) values (%s)',
+            //$table,
+            //implode(', ', array_keys($parameters)),
+            //':' . implode(', :', array_keys($parameters))
+            //);
 
-            );
+        //die(var_dump($sql));
 
         try {
 

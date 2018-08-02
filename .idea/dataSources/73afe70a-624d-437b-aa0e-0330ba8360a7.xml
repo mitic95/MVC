@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="mytodo@localhost">
+<dataSource name="authent@localhost">
   <database-model serializer="dbm" rdbms="MYSQL" format-version="4.8">
     <root id="1">
       <ServerVersion>5.7.23</ServerVersion>
@@ -12,6 +12,8 @@
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="4" parent="1" name="authent">
+      <Current>1</Current>
+      <Visible>1</Visible>
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="5" parent="1" name="authentication">
@@ -30,8 +32,6 @@
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="10" parent="1" name="mytodo">
-      <Current>1</Current>
-      <Visible>1</Visible>
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="11" parent="1" name="performance_schema">
@@ -937,64 +937,37 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="238" parent="10" name="todos">
+    <table id="238" parent="4" name="users">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="239" parent="10" name="users">
-      <Engine>InnoDB</Engine>
-    </table>
-    <column id="240" parent="238" name="id">
+    <column id="239" parent="238" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="238" name="description">
+    <column id="240" parent="238" name="email">
       <Position>2</Position>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(250)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="238" name="completed">
+    <column id="241" parent="238" name="password">
       <Position>3</Position>
-      <DataType>tinyint(1)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(250)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
+    <index id="242" parent="238" name="users_email_uindex">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
     <key id="243" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="244" parent="239" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="245" parent="239" name="email">
-      <Position>2</Position>
-      <DataType>varchar(250)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="246" parent="239" name="password">
-      <Position>3</Position>
-      <DataType>varchar(250)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="247" parent="239" name="users_email_uindex">
-      <ColNames>email</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="248" parent="239" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="249" parent="239" name="users_email_uindex">
+    <key id="244" parent="238" name="users_email_uindex">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_uindex</UnderlyingIndexName>
     </key>

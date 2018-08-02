@@ -4,7 +4,7 @@ return [
 
     'database' => [
 
-        'name' => 'mytodo',
+        'name' => 'authent',
 
         'username' => 'root',
 

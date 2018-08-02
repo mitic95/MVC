@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Core\App;
+
 class Pagescontroller
 {
-
     public function home()
     {
 
@@ -12,20 +13,24 @@ class Pagescontroller
 
     }
 
-    public function about()
+    public function register()
     {
 
-        $company = 'Laracasts';
-
-        return view('about',compact('company'));
+        return view('register');
 
     }
 
-    public function contact()
+    public function login()
     {
 
-        return view('contact');
+        return view('login');
 
     }
 
+    public function listAllUser()
+    {
+        $users = App::get('database')->selectAll('users');
+
+        return view('users', compact('users'));
+    }
 }

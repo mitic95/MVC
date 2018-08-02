@@ -2,10 +2,9 @@
 
 $router->get('', 'Pagescontroller@home');
 
-$router->get('about', 'Pagescontroller@about');
+$router->get('register', 'Pagescontroller@register');
+$router->post('register', 'Usercontroller@store');
 
-$router->get('contact', 'Pagescontroller@contact');
+$router->get('login', 'Pagescontroller@login');
 
-$router->get('users', 'Usercontroller@index');
-
-$router->post('users', 'Usercontroller@store');
+$router->get('user/list', 'Pagescontroller@listAllUser');

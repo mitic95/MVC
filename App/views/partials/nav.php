@@ -1,8 +1,8 @@
-<nav>
+<nav class="nav">
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/users">User list</a></li>
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+        <a href="/user/list">User list</a>
     </ul>
 </nav>
