@@ -1,4 +1,4 @@
-<?php // here place any <script> ?>
+<?php // here place any javascript ?>
 
 </body>
 

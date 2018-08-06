@@ -6,35 +6,10 @@ use App\Core\App;
 
 class Usercontroller
 {
-    public function store()
+    public function index()
     {
-            $email = $this->trim($_POST['email']);
-            $pass = $this->trim($_POST['pass']);
-            $confirmPass = $this->trim($_POST['confirm_password']);
+        $users = App::get('database')->selectAll('users');
 
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL) == true) {
-                return redirect('register');
-            }
-
-            if ($pass !== $confirmPass) {
-                return redirect('register');
-            }
-
-        App::get('database')->insert('users', [
-
-            'email' => $email,
-
-            'password' => password_hash($pass, PASSWORD_BCRYPT)
-
-        ]);
-
-        return redirect('login');
-    }
-
-    public function trim($trim)
-    {
-
-        return htmlspecialchars(stripslashes(strip_tags(trim($trim))));
-
+        return view('users', compact('users'));
     }
 }
