@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-class Pagescontroller
+class Pagescontroller extends Controller
 {
     public function index()
     {
-        return view('index', compact('user'));
+        return view('index');
     }
 }

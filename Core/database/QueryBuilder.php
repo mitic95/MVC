@@ -1,5 +1,10 @@
 <?php
 
+namespace Core\database;
+
+use PDO;
+use Exception;
+
 class QueryBuilder
 {
     protected $pdo;
@@ -50,8 +55,6 @@ class QueryBuilder
 
     public function login($column, $email)
     {
-        session_start();
-
         try {
             $query = $this->pdo->prepare("SELECT id,email,password FROM users WHERE {$column}=:email");
             $row = $this->pdo->prepare("SELECT id,email,password FROM users WHERE {$column}=:email");

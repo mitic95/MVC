@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Core;
+namespace Core;
+
+use Exception;
 
 class Router
 {
@@ -55,8 +57,7 @@ class Router
 
     protected function callAction($controller, $action)
     {
-
-        $controller = "App\\Controllers\\{$controller}";
+        $controller = "\\App\\Controllers\\{$controller}";
 
         $controller = new $controller;
 

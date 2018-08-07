@@ -2,14 +2,16 @@
 
 namespace App\Controllers;
 
-use App\Core\App;
+use Core\App;
 
-class Usercontroller
+class UserController extends Controller
 {
     public function index()
     {
         $users = App::get('database')->selectAll('users');
 
-        return view('users', compact('users'));
+        $test = $this->data;
+
+        return view('users', compact('users', $test));
     }
 }
