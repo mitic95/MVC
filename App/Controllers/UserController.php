@@ -10,8 +10,15 @@ class UserController extends Controller
     {
         $users = App::get('database')->selectAll('users');
 
-        $test = $this->data;
+        return view('users', compact('users'));
+    }
 
-        return view('users', compact('users', $test));
+    public function search()
+    {
+        $search = $this->trim($_POST['search']);
+
+        $users = App::get('database')->searchField('users' ,'email', $search);
+
+        return view('search', compact('users'));
     }
 }

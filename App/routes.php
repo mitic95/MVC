@@ -10,3 +10,5 @@ $router->post('login', 'SessionsController@store');
 $router->get('logout', 'SessionsController@logout');
 
 $router->get('users', 'UserController@index');
+
+$router->post('search', 'UserController@search');

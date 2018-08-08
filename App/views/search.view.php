@@ -10,14 +10,7 @@ if(!isset($_SESSION['login'])){
         <a href="/">HOME PAGE</a>
     </div>
 
-    <h1>All Users:</h1>
-
-<div class="search">
-    <form action="/search" method="post">
-        <input type="text" name="search" placeholder="Search users...">
-        <input type="submit" name="submit" value="Search">
-    </form>
-</div>
+    <h1>All Results:</h1>
 
 <?php foreach($users as $user) : ?>
 
