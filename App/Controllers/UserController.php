@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use Core\App;
 
-class UserController extends Controller
+class UserController extends ProtectedController
 {
     public function index()
     {
@@ -20,5 +20,10 @@ class UserController extends Controller
         $users = App::get('database')->searchField('users' ,'email', $search);
 
         return view('search', compact('users'));
+    }
+
+    public function getSearch()
+    {
+        return view('search');
     }
 }

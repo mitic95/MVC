@@ -29,12 +29,16 @@ class Router
 
         $this->routes['GET'][$uri] = $controller;
 
+        // return $this;
+
     }
 
     public function post($uri, $controller)
     {
 
         $this->routes['POST'][$uri] = $controller;
+
+        // return $this;
 
     }
 

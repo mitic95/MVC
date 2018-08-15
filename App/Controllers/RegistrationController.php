@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use Core\App;
 
-class RegistrationController extends Controller
+class RegistrationController extends PublicController
 {
     public function create()
     {

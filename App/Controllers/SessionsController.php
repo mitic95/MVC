@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use Core\App;
 
-class SessionsController extends Controller
+class SessionsController extends PublicController
 {
     public function create()
     {

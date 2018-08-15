@@ -1,6 +1,6 @@
 <?php
 
-$router->get('', 'Pagescontroller@index');
+$router->get('', 'PageController@index');
 
 $router->get('register', 'RegistrationController@create');
 $router->post('register', 'RegistrationController@store');

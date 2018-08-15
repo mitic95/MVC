@@ -1,9 +1,3 @@
-<?php
-if(isset($_SESSION['login'])){
-    header('Location: /');
-}
-?>
-
 <?php require('partials/head.php') ?>
 
 <body>
