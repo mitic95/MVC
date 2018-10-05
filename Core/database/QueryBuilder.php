@@ -44,6 +44,10 @@ class QueryBuilder
 
     }
 
+    /**
+     * @param $column
+     * @param $email
+     */
     public function login($column, $email)
     {
         try {
