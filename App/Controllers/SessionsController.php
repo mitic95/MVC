@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Core\App;
+use Core\App;
 
-class Sessionscontroller extends Controller
+class SessionsController extends PublicController
 {
     public function create()
     {
@@ -22,7 +22,6 @@ class Sessionscontroller extends Controller
 
     public function logout()
     {
-        session_start();
         session_unset();
         session_destroy();
 

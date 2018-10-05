@@ -1,12 +1,14 @@
 <?php
 
-$router->get('', 'Pagescontroller@index');
+$router->get('', 'PageController@index');
 
-$router->get('register', 'Registrationcontroller@create');
-$router->post('register', 'Registrationcontroller@store');
+$router->get('register', 'RegistrationController@create');
+$router->post('register', 'RegistrationController@store');
 
-$router->get('login', 'Sessionscontroller@create');
-$router->post('login', 'Sessionscontroller@store');
-$router->get('logout', 'Sessionscontroller@logout');
+$router->get('login', 'SessionsController@create');
+$router->post('login', 'SessionsController@store');
+$router->get('logout', 'SessionsController@logout');
 
-$router->get('users', 'Usercontroller@index');
+$router->get('users', 'UserController@index');
+
+$router->post('search', 'UserController@search');

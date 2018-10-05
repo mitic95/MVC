@@ -1,15 +1,11 @@
-<?php
-session_start();
-?>
-
 <?php require('partials/head.php') ?>
 
-    <h1>Home Page</h1>
+    <em><h1>Welcome</h1></em>
 
     <?php
 
         if(isset($_SESSION['login'])){
-            echo "<b><em>Welcome</em></b> " . $_SESSION['login'];
+            echo $_SESSION['login'];
         }
 
     ?>

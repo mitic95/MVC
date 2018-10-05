@@ -1,5 +1,10 @@
 <?php
 
+namespace Core\database;
+
+use PDO;
+use Exception;
+
 class QueryBuilder
 {
     protected $pdo;
@@ -12,7 +17,6 @@ class QueryBuilder
     public function selectAll($table)
     {
         $statement = $this->pdo->prepare("select * from {$table}");
-
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_CLASS);
@@ -25,14 +29,6 @@ class QueryBuilder
         $names = ':' . implode(', :', array_keys($parameters));
 
         $sql = "INSERT INTO {$table} ($name) VALUES ($names)";
-
-        //$sql = sprintf('insert into %s (%s) values (%s)',
-            //$table,
-            //implode(', ', array_keys($parameters)),
-            //':' . implode(', :', array_keys($parameters))
-            //);
-
-        //die(var_dump($sql));
 
         try {
 
@@ -50,8 +46,6 @@ class QueryBuilder
 
     public function login($column, $email)
     {
-        session_start();
-
         try {
             $query = $this->pdo->prepare("SELECT id,email,password FROM users WHERE {$column}=:email");
             $row = $this->pdo->prepare("SELECT id,email,password FROM users WHERE {$column}=:email");
@@ -71,10 +65,19 @@ class QueryBuilder
                 die('Sorry, those credentials do not match');
 
             }
-        } catch (Exception $e){
+        } catch (Exception $e) {
 
             die('Whoops, something went wrong.');
 
         }
+    }
+
+    public function searchField($table,$col,$search)
+    {
+            $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE {$col} LIKE :keyword ORDER BY id DESC");
+            $statement->bindValue(':keyword', '%' . $search . '%', PDO::PARAM_STR);
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 }

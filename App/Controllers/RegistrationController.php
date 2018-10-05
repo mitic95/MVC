@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Core\App;
+use Core\App;
 
-class Registrationcontroller extends Controller
+class RegistrationController extends PublicController
 {
     public function create()
     {

@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Core;
+namespace Core;
+
+use Exception;
 
 class Router
 {
@@ -27,12 +29,16 @@ class Router
 
         $this->routes['GET'][$uri] = $controller;
 
+        // return $this;
+
     }
 
     public function post($uri, $controller)
     {
 
         $this->routes['POST'][$uri] = $controller;
+
+        // return $this;
 
     }
 
@@ -55,8 +61,7 @@ class Router
 
     protected function callAction($controller, $action)
     {
-
-        $controller = "App\\Controllers\\{$controller}";
+        $controller = "\\App\\Controllers\\{$controller}";
 
         $controller = new $controller;
 
