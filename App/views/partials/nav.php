@@ -1,8 +1,19 @@
-<nav>
+<nav class="nav">
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/users">User list</a></li>
+        <?php
+        if(!isset($_SESSION['login'])){
+            ?>
+            <a href="/">Home</a>
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+            <?php
+        }elseif (isset($_SESSION['login'])){
+            ?>
+            <a href="/">Home</a>
+            <a href="/users">User list</a>
+            <a href="/logout">Logout</a>
+            <?php
+        }
+        ?>
     </ul>
 </nav>

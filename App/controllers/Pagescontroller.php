@@ -4,28 +4,8 @@ namespace App\Controllers;
 
 class Pagescontroller
 {
-
-    public function home()
+    public function index()
     {
-
-        return view('index');
-
+        return view('index', compact('user'));
     }
-
-    public function about()
-    {
-
-        $company = 'Laracasts';
-
-        return view('about',compact('company'));
-
-    }
-
-    public function contact()
-    {
-
-        return view('contact');
-
-    }
-
 }

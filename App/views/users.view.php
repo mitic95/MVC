@@ -1,21 +1,23 @@
+<?php
+session_start();
+if(!isset($_SESSION['login'])){
+    header('Location: /');
+}
+?>
+
 <?php require('partials/head.php') ?>
 
-<h1>All Users:</h1>
+    <div class="header">
+        <a href="/">HOME PAGE</a>
+    </div>
+
+    <h1>All Users:</h1>
 
 <?php foreach($users as $user) : ?>
 
-    <li><?= $user->name; ?></li>
+    <?php echo "User Email:". PHP_EOL . "<b><em>" . $user->email . "</em></b>"; ?>
+    <br> <br>
 
 <?php endforeach; ?>
-
-<h1>Submit Your Name</h1>
-
-<form method="POST" action="/users">
-
-    <input name="name">
-
-    <button type="submit">Submit</button>
-
-</form>
 
 <?php require('partials/footer.php') ?>
