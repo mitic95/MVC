@@ -4,6 +4,10 @@ namespace App\Controllers;
 
 use Core\App;
 
+/**
+ * Class SessionsController
+ * @package App\Controllers
+ */
 class SessionsController extends PublicController
 {
     /**
@@ -14,6 +18,9 @@ class SessionsController extends PublicController
         return view('login');
     }
 
+    /**
+     * @throws \Exception
+     */
     public function store()
     {
         $email = $this->trim($_POST['email']);
@@ -28,6 +35,6 @@ class SessionsController extends PublicController
         session_unset();
         session_destroy();
 
-        header('Location: /');
+        return header('Location: /');
     }
 }

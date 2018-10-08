@@ -5,15 +5,27 @@ namespace Core\database;
 use PDO;
 use Exception;
 
+/**
+ * Class QueryBuilder
+ * @package Core\database
+ */
 class QueryBuilder
 {
     protected $pdo;
 
+    /**
+     * QueryBuilder constructor.
+     * @param $pdo
+     */
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
     }
 
+    /**
+     * @param $table
+     * @return mixed
+     */
     public function selectAll($table)
     {
         $statement = $this->pdo->prepare("select * from {$table}");
@@ -22,6 +34,10 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
+    /**
+     * @param $table
+     * @param $parameters
+     */
     public function insert($table, $parameters)
     {
         $name = implode(', ', array_keys($parameters));
@@ -41,7 +57,6 @@ class QueryBuilder
             die('Whoops, something went wrong.');
 
         }
-
     }
 
     /**
@@ -76,6 +91,12 @@ class QueryBuilder
         }
     }
 
+    /**
+     * @param $table
+     * @param $col
+     * @param $search
+     * @return mixed
+     */
     public function searchField($table,$col,$search)
     {
             $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE {$col} LIKE :keyword ORDER BY id DESC");

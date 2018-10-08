@@ -4,6 +4,10 @@ namespace App\Controllers;
 
 use Core\App;
 
+/**
+ * Class RegistrationController
+ * @package App\Controllers
+ */
 class RegistrationController extends PublicController
 {
     /**
@@ -14,6 +18,9 @@ class RegistrationController extends PublicController
         return view('register');
     }
 
+    /**
+     * @throws \Exception
+     */
     public function store()
     {
         $email = $this->trim($_POST['email']);

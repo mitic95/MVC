@@ -8,7 +8,10 @@
 
 namespace App\Controllers;
 
-
+/**
+ * abstract Class PublicController
+ * @package App\Controllers
+ */
 abstract class PublicController extends Controller
 {
     /**

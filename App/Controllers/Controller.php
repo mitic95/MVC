@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
+use Exception;
+
 /**
- * Class Controller
+ * abstract Class Controller
  * @package App\Controllers
  */
 abstract class Controller
 {
-    /**
-     * @var array
-     */
+    /** @var array $data */
     protected $data;
 
     /**
@@ -26,14 +26,15 @@ abstract class Controller
      * @param null $email
      * @param null $pass
      * @param null $confirmPass
+     * @throws Exception
      */
     public function validate($email = null,$pass = null,$confirmPass = null)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL) == true) {
-            die('Invalid email!');
+            throw new Exception('Invalid email!');
         }
         if ($pass !== $confirmPass) {
-            die('password not equal to confirm password!');
+            throw new Exception('password not equal to confirm password!');
         }
     }
 

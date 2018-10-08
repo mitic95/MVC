@@ -5,8 +5,16 @@ namespace Core\database;
 use PDO;
 use PDOException;
 
+/**
+ * Class Connection
+ * @package Core\database
+ */
 class Connection
 {
+    /**
+     * @param $config
+     * @return PDO
+     */
     public static function make($config)
     {
         try {
@@ -25,7 +33,7 @@ class Connection
 
         } catch (PDOException $e){
 
-            die($e->getMessage());
+            throw new PDOException($e);
 
         }
     }

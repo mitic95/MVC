@@ -4,6 +4,10 @@ namespace App\Controllers;
 
 use Core\App;
 
+/**
+ * Class UserController
+ * @package App\Controllers
+ */
 class UserController extends ProtectedController
 {
     /**

@@ -2,9 +2,13 @@
 
 namespace Core;
 
+/**
+ * Class App
+ * @package Core
+ */
 class App
 {
-
+    /** @var array $registry */
     protected static $registry = [];
 
     /**
@@ -13,9 +17,7 @@ class App
      */
     public static function bind($key, $value)
     {
-
         static::$registry[$key] = $value;
-
     }
 
     /**
@@ -24,7 +26,6 @@ class App
      */
     public static function get($key)
     {
-
         if(! array_key_exists($key, static::$registry)){
 
             throw new Exception("No {$key} is bound in the container.");
@@ -32,7 +33,5 @@ class App
         }
 
         return static::$registry[$key];
-
     }
-
 }
