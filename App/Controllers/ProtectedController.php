@@ -11,6 +11,9 @@ namespace App\Controllers;
 
 abstract class ProtectedController extends Controller
 {
+    /**
+     * ProtectedController constructor.
+     */
     public function __construct()
     {
         parent::__construct();

@@ -6,6 +6,9 @@ use Core\App;
 
 class UserController extends ProtectedController
 {
+    /**
+     * @return mixed
+     */
     public function index()
     {
         $users = App::get('database')->selectAll('users');
@@ -13,6 +16,9 @@ class UserController extends ProtectedController
         return view('users', compact('users'));
     }
 
+    /**
+     * @return mixed
+     */
     public function search()
     {
         $search = $this->trim($_POST['search']);
@@ -22,6 +28,9 @@ class UserController extends ProtectedController
         return view('search', compact('users'));
     }
 
+    /**
+     * @return mixed
+     */
     public function getSearch()
     {
         return view('search');

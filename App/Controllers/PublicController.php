@@ -11,6 +11,9 @@ namespace App\Controllers;
 
 abstract class PublicController extends Controller
 {
+    /**
+     * PublicController constructor.
+     */
     public function __construct()
     {
         parent::__construct();

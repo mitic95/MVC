@@ -7,6 +7,10 @@ class App
 
     protected static $registry = [];
 
+    /**
+     * @param $key
+     * @param $value
+     */
     public static function bind($key, $value)
     {
 
@@ -14,6 +18,10 @@ class App
 
     }
 
+    /**
+     * @param $key
+     * @return mixed
+     */
     public static function get($key)
     {
 

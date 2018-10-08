@@ -13,12 +13,20 @@ abstract class Controller
      */
     protected $data;
 
+    /**
+     * Controller constructor.
+     */
     public function __construct()
     {
         session_start();
         $this->data["sessionActive"] = isset($_SESSION["login"]) ? true : false;
     }
 
+    /**
+     * @param null $email
+     * @param null $pass
+     * @param null $confirmPass
+     */
     public function validate($email = null,$pass = null,$confirmPass = null)
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL) == true) {
@@ -29,6 +37,10 @@ abstract class Controller
         }
     }
 
+    /**
+     * @param $trim
+     * @return string
+     */
     public function trim($trim)
     {
         return htmlspecialchars(stripslashes(strip_tags(trim($trim))));

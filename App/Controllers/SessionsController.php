@@ -6,6 +6,9 @@ use Core\App;
 
 class SessionsController extends PublicController
 {
+    /**
+     * @return mixed
+     */
     public function create()
     {
         return view('login');

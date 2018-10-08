@@ -6,6 +6,9 @@ use Core\App;
 
 class RegistrationController extends PublicController
 {
+    /**
+     * @return mixed
+     */
     public function create()
     {
         return view('register');
