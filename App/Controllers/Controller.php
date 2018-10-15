@@ -4,10 +4,6 @@ namespace App\Controllers;
 
 use Exception;
 
-/**
- * abstract Class Controller
- * @package App\Controllers
- */
 abstract class Controller
 {
     /** @var array $data */
