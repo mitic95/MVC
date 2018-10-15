@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Core\App;
+use Exception;
 
 /**
  * Class UserController
@@ -12,6 +13,7 @@ class UserController extends ProtectedController
 {
     /**
      * @return mixed
+     * @throws Exception
      */
     public function index()
     {
@@ -22,6 +24,7 @@ class UserController extends ProtectedController
 
     /**
      * @return mixed
+     * @throws Exception
      */
     public function search()
     {

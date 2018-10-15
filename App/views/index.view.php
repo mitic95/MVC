@@ -1,6 +1,6 @@
 <?php require('partials/head.php') ?>
 
-    <em><h1>Welcome</h1></em>
+    <h1><em>Welcome</em></h1>
 
     <?php
 
