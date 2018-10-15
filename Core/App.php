@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Exception;
+
 /**
  * Class App
  * @package Core
@@ -20,9 +22,11 @@ class App
         static::$registry[$key] = $value;
     }
 
+
     /**
      * @param $key
      * @return mixed
+     * @throws Exception
      */
     public static function get($key)
     {
